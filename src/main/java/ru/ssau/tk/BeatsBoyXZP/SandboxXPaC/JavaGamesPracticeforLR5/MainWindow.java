@@ -5,9 +5,9 @@ import javax.swing.*;
 public class MainWindow extends JFrame {
 
     public MainWindow(){
-        setTitle("Snake1");
+        setTitle("Snake_2");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setSize(400, 400);
+        setSize(320, 345);
         add(new GameField());
         setLocation(400,400);
         setVisible(true);
