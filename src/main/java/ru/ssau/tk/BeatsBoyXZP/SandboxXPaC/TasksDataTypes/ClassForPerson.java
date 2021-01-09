@@ -12,5 +12,5 @@ public class ClassForPerson extends Person{
         person = new Person();
         person.setFirstName("Ignat");
         System.out.println(person.getFirstName());
-    ]
+    }
 }
