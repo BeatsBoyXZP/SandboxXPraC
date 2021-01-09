@@ -16,6 +16,30 @@ public class PersonTest {
             assertEquals(person1.getLastName(), "Black");
             assertEquals(person1.getPassportId(), 15163, 0.000000001);
         }
+    @Test
+    public void testFirstName(){
+        person1.setFirstName("Key");
+        assertEquals(person1.getFirstName(),"Key");
+    }
+    @Test
+    public void testLastName(){
+        person1.setLastName("Black");
+        assertEquals(person1.getLastName(),"Black");
+    }
+    @Test
+    public void testPassportId(){
+        person1.setPassportId(12345);
+        assertEquals(person1.getPassportId(),12345,0.000001);
+    }
+    @Test
+    public void testErrorNull(){
+        person1.setLastName(Null);
+        assertEquals(person1.getLastName(),"Black");
+    }
+    @Test
+    public void testErrorGet(){
+        assertEquals(person1.getFirstName(),"Key");
+    }
 
         @Test
     public void testTestToString() {
