@@ -1,6 +1,6 @@
 package ru.ssau.tk.BeatsBoyXZP.SandboxXPaC.TasksDataTypes;
 
-public class ResettableIntGenerator implements IntGenerator, Resettable{
+public class ResettableIntGenerator implements IntGenerator, Resettable {
     public int res = 0;
 
     @Override

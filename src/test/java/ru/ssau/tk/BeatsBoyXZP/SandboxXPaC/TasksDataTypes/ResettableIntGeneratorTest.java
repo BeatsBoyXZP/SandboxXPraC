@@ -2,7 +2,7 @@ package ru.ssau.tk.BeatsBoyXZP.SandboxXPaC.TasksDataTypes;
 
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertEquals;
 
 public class ResettableIntGeneratorTest {
     ResettableIntGenerator resettableIntGenerator = new ResettableIntGenerator();

@@ -4,12 +4,12 @@ import javax.swing.*;
 
 public class MainWindow extends JFrame {
 
-    public MainWindow(){
+    public MainWindow() {
         setTitle("Snake_2");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(320, 345);
         add(new GameField());
-        setLocation(400,400);
+        setLocation(400, 400);
         setVisible(true);
 
     }

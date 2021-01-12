@@ -5,8 +5,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
-import java.util.Random;
 import java.awt.event.KeyEvent;
+import java.util.Random;
 
 public class GameField extends JPanel implements ActionListener {
     private final int SIZE = 320;
@@ -104,25 +104,26 @@ public class GameField extends JPanel implements ActionListener {
         }
     }
 
-    public void checkCollisions(){
+    public void checkCollisions() {
         for (int i = dots; i > 0; i--) {
-            if(i > 4 && x[0] == x[i] && y[0] == y[i]){
+            if (i > 4 && x[0] == x[i] && y[0] == y[i]) {
                 inGame = false;
             }
         }
-        if(x[0]>SIZE){
+        if (x[0] > SIZE) {
             inGame = false;
         }
-        if(x[0]<0){
+        if (x[0] < 0) {
             inGame = false;
         }
-        if(y[0]>SIZE){
+        if (y[0] > SIZE) {
             inGame = false;
         }
-        if(y[0]<0){
+        if (y[0] < 0) {
             inGame = false;
         }
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (inGame) {
@@ -139,23 +140,23 @@ public class GameField extends JPanel implements ActionListener {
         public void keyPressed(KeyEvent e) {
             super.keyPressed(e);
             int key = e.getKeyCode();
-            if(key == KeyEvent.VK_LEFT && !right){
+            if (key == KeyEvent.VK_LEFT && !right) {
                 left = true;
                 up = false;
                 down = false;
             }
-            if(key == KeyEvent.VK_RIGHT && !left){
+            if (key == KeyEvent.VK_RIGHT && !left) {
                 right = true;
                 up = false;
                 down = false;
             }
 
-            if(key == KeyEvent.VK_UP && !down){
+            if (key == KeyEvent.VK_UP && !down) {
                 right = false;
                 up = true;
                 left = false;
             }
-            if(key == KeyEvent.VK_DOWN && !up){
+            if (key == KeyEvent.VK_DOWN && !up) {
                 right = false;
                 down = true;
                 left = false;

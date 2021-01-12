@@ -1,6 +1,6 @@
 package ru.ssau.tk.BeatsBoyXZP.SandboxXPaC.TasksDataTypes;
 
-public class ClassForPerson extends Person{
+public class ClassForPerson extends Person {
     public static void main(String[] args) {
         Person person = new Person();
         person.setFirstName("Arkadiy");
