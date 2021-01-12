@@ -58,10 +58,12 @@ public class PrintType {
         double doubl = floa;
         printType.printType(doubl);
         boolean boolea = true;
+        printType.printType(boolea);
         Object object1 = new Person();
         Object object2 = new Point(1, 2, 3);
         printType.printType(object1);
         printType.printType(object2);
+        printType.printType(null);
     }
 }
 
