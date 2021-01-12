@@ -1,5 +1,6 @@
 package ru.ssau.tk.BeatsBoyXZP.SandboxXPaC.JavaSweeper.Sweeper;
 
+
 public enum Box {
     ZERO,
     NUM1,
@@ -10,10 +11,13 @@ public enum Box {
     NUM6,
     NUM7,
     NUM8,
+    BOMB,
 
     OPENED,
     CLOSED,
-    FLAGGED,
+    FLAGED,
     BOMBED,
     NOBOMB;
+
+    public Object image;
 }
