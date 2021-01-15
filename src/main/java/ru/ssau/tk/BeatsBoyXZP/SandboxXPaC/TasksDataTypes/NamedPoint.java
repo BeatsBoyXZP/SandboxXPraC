@@ -1,5 +1,7 @@
 package ru.ssau.tk.BeatsBoyXZP.SandboxXPaC.TasksDataTypes;
 
+import java.util.Objects;
+
 public class NamedPoint extends Point implements Resettable {
     private String name;
 
@@ -27,5 +29,11 @@ public class NamedPoint extends Point implements Resettable {
     @Override
     public void reset() {
         this.name = "Absent";
+    }
+
+    @Override
+    public String toString() {
+        if (Objects.equals(null, name)) return super.toString();
+        return name + ": " + super.toString();
     }
 }
