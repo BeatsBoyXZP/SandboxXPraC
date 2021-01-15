@@ -55,7 +55,7 @@ class GameMines extends JFrame {
                             }
                         }
                     if (e.getButton() == MOUSE_BUTTON_RIGHT) field[y][x].inverseFlag();
-                    if (bangMine || youWon) timeLabel.stopTimer();
+                    if (bangMine || youWon) timeLabel.stopTimer(); // game over
                     canvas.repaint();
                 }
             }
