@@ -10,20 +10,20 @@ class GameMines extends JFrame {
 
     final String TITLE_OF_PROGRAM = "Mines";
     final String SIGN_OF_FLAG = "f";
-    final int BLOCK_SIZE = 30; // size of one block
-    final int FIELD_SIZE = 9; // in blocks
-    final int FIELD_DX = 6; // determined experimentally
+    final int BLOCK_SIZE = 30;
+    final int FIELD_SIZE = 9;
+    final int FIELD_DX = 6;
     final int FIELD_DY = 28 + 17;
     final int START_LOCATION = 200;
-    final int MOUSE_BUTTON_LEFT = 1; // for mouse listener
+    final int MOUSE_BUTTON_LEFT = 1;
     final int MOUSE_BUTTON_RIGHT = 3;
     final int NUMBER_OF_MINES = 10;
     final int[] COLOR_OF_NUMBERS = {0x0000FF, 0x008000, 0xFF0000, 0x800000, 0x0};
     Cell[][] field = new Cell[FIELD_SIZE][FIELD_SIZE];
     Random random = new Random();
     int countOpenedCells;
-    boolean youWon, bangMine; // flags for win and bang/fail
-    int bangX, bangY; // for fix the coordinates of the explosion
+    boolean youWon, bangMine;
+    int bangX, bangY;
 
     public static void main(String[] args) {
         new GameMines();
@@ -45,17 +45,17 @@ class GameMines extends JFrame {
                 int x = e.getX()/BLOCK_SIZE;
                 int y = e.getY()/BLOCK_SIZE;
                 if (!bangMine && !youWon) {
-                    if (e.getButton() == MOUSE_BUTTON_LEFT) // left button mouse
+                    if (e.getButton() == MOUSE_BUTTON_LEFT)
                         if (field[y][x].isNotOpen()) {
                             openCells(x, y);
-                            youWon = countOpenedCells == FIELD_SIZE*FIELD_SIZE - NUMBER_OF_MINES; // winning check
+                            youWon = countOpenedCells == FIELD_SIZE*FIELD_SIZE - NUMBER_OF_MINES;
                             if (bangMine) {
                                 bangX = x;
                                 bangY = y;
                             }
                         }
-                    if (e.getButton() == MOUSE_BUTTON_RIGHT) field[y][x].inverseFlag(); // right button mouse
-                    if (bangMine || youWon) timeLabel.stopTimer(); // game over
+                    if (e.getButton() == MOUSE_BUTTON_RIGHT) field[y][x].inverseFlag();
+                    if (bangMine || youWon) timeLabel.stopTimer();
                     canvas.repaint();
                 }
             }
@@ -66,22 +66,20 @@ class GameMines extends JFrame {
         initField();
     }
 
-    void openCells(int x, int y) { // recursive procedure of opening the cells
-        if (x < 0 || x > FIELD_SIZE - 1 || y < 0 || y > FIELD_SIZE - 1) return; // wrong coordinates
-        if (!field[y][x].isNotOpen()) return; // cell is already open
+    void openCells(int x, int y) {
+        if (x < 0 || x > FIELD_SIZE - 1 || y < 0 || y > FIELD_SIZE - 1) return;
+        if (!field[y][x].isNotOpen()) return;
         field[y][x].open();
-        if (field[y][x].getCountBomb() > 0 || bangMine) return; // the cell is not empty
+        if (field[y][x].getCountBomb() > 0 || bangMine) return;
         for (int dx = -1; dx < 2; dx++)
             for (int dy = -1; dy < 2; dy++) openCells(x + dx, y + dy);
     }
 
-    void initField() { // initialization of the playing field
+    void initField() {
         int x, y, countMines = 0;
-        // create cells for the field
         for (x = 0; x < FIELD_SIZE; x++)
             for (y = 0; y < FIELD_SIZE; y++)
                 field[y][x] = new Cell();
-        // to mine field
         while (countMines < NUMBER_OF_MINES) {
             do {
                 x = random.nextInt(FIELD_SIZE);
@@ -90,7 +88,6 @@ class GameMines extends JFrame {
             field[y][x].mine();
             countMines++;
         }
-        // to count dangerous neighbors
         for (x = 0; x < FIELD_SIZE; x++)
             for (y = 0; y < FIELD_SIZE; y++)
                 if (!field[y][x].isMined()) {
@@ -109,7 +106,7 @@ class GameMines extends JFrame {
                 }
     }
 
-    class Cell { // playing field cell
+    class Cell {
         private int countBombNear;
         private boolean isOpen, isMine, isFlag;
 
@@ -164,10 +161,10 @@ class GameMines extends JFrame {
         }
     }
 
-    class TimerLabel extends JLabel { // label with stopwatch
+    class TimerLabel extends JLabel {
         Timer timer = new Timer();
 
-        TimerLabel() { timer.scheduleAtFixedRate(timerTask, 0, 1000); } // TimerTask task, long delay, long period
+        TimerLabel() { timer.scheduleAtFixedRate(timerTask, 0, 1000); }
 
         TimerTask timerTask = new TimerTask() {
             volatile int time;
@@ -185,7 +182,7 @@ class GameMines extends JFrame {
         void stopTimer() { timer.cancel(); }
     }
 
-    class Canvas extends JPanel { // my canvas for painting
+    class Canvas extends JPanel {
         @Override
         public void paint(Graphics g) {
             super.paint(g);
