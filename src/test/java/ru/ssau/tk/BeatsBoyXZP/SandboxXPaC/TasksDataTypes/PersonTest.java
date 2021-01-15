@@ -63,6 +63,12 @@ public class PersonTest {
         assertEquals(person2.getPassportId(), 123456);
         assertEquals(person2.getGender(), Gender.MALE);
     }
+    @Test
+    public void testToString() {
+        Person person = new Person("Key", "Black");
+        assertEquals(person2.toString(), "Key Black");
+        assertEquals(person.toString(), "Key Black");
+    }
     /*@Test
     public void testErrorNull(){
         person1.setLastName(Null);
