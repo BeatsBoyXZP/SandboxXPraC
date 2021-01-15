@@ -10,6 +10,14 @@ public class Point {
         this.y = y;
         this.z = z;
     }
+    @Override
+    public String toString() {
+        return "[" +
+                x + ", "
+                + y + ", "
+                + z +
+                ']';
+    }
 
     public double length() {
         return Math.sqrt(x * x + y * y + z * z);
