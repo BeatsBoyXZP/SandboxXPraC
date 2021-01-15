@@ -68,6 +68,7 @@ public class PersonTest {
         Person person = new Person("Key", "Black");
         assertEquals(person2.toString(), "Key Black");
         assertEquals(person.toString(), "Key Black");
+
     }
     /*@Test
     public void testErrorNull(){
