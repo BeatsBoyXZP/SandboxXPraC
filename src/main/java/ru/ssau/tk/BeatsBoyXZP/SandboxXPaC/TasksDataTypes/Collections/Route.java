@@ -1,8 +1,6 @@
 package ru.ssau.tk.BeatsBoyXZP.SandboxXPaC.TasksDataTypes.Collections;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.NoSuchElementException;
+import java.util.*;
 
 public class Route implements Iterable<Location>{
     private ArrayList<Location> locations = new ArrayList<>();
