@@ -60,10 +60,6 @@ public class Person {
         this.passportId = passportId;
     }
 
-    @Override
-    public String toString() {
-        return firstName + " " + lastName;
-    }
 
     public Gender getGender() {
         return gender = gender;
@@ -71,6 +67,10 @@ public class Person {
 
     void setGender(Gender gender) {
         this.gender = gender;
+    }
+    @Override
+    public String toString() {
+        return firstName + (firstName.isEmpty() || lastName.isEmpty() ? "" : " ") + lastName;
     }
 
 }
